@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/startingFragment">
+
+    <fragment
+        android:id="@+id/startingFragment"
+        android:name="com.mobilenik.storibank.Views.StartingFragment.StartingFragment"
+        android:label="fragment_starting"
+        tools:layout="@layout/fragment_starting" >
+        <action
+            android:id="@+id/action_startingFragment_to_step1RegisterFragment"
+            app:destination="@id/step1RegisterFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/step1RegisterFragment"
+        android:name="com.mobilenik.storibank.Views.RegisterFragments.Step1RegisterFragment"
+        android:label="fragment_step1_register"
+        tools:layout="@layout/fragment_step1_register" >
+        <action
+            android:id="@+id/action_step1RegisterFragment_to_step2RegisterFragment"
+            app:destination="@id/step2RegisterFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/step2RegisterFragment"
+        android:name="com.mobilenik.storibank.Views.RegisterFragments.Step2RegisterFragment"
+        android:label="fragment_step2_register"
+        tools:layout="@layout/fragment_step2_register" >
+        <action
+            android:id="@+id/action_step2RegisterFragment_to_step3RegisterFragment"
+            app:destination="@id/step3RegisterFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/step3RegisterFragment"
+        android:name="com.mobilenik.storibank.Views.RegisterFragments.Step3RegisterFragment"
+        android:label="fragment_step3_register"
+        tools:layout="@layout/fragment_step3_register" />
+</navigation>

@@ -4,6 +4,7 @@
     package="com.mobilenik.storibank">
 
     <application
+        android:name=".Views.StoriBank"
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
@@ -14,10 +15,11 @@
         android:theme="@style/Theme.StoriBank"
         tools:targetApi="31">
         <activity
-            android:name=".MainActivity"
+            android:name=".Views.MainActivity"
             android:exported="true"
             android:label="@string/app_name"
-            android:theme="@style/Theme.StoriBank">
+            android:theme="@style/Theme.AppCompat"
+            >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
