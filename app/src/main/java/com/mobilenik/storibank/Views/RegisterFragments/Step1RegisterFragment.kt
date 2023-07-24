@@ -6,9 +6,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
+import androidx.navigation.fragment.findNavController
 import com.mobilenik.storibank.Data.Model.UserInformation
 import com.mobilenik.storibank.Data.Model.UserRegister
 import com.mobilenik.storibank.R
+import com.mobilenik.storibank.Utils.EventObserver
 import com.mobilenik.storibank.databinding.FragmentStep1RegisterBinding
 
 class Step1RegisterFragment : Fragment() {
@@ -35,7 +37,10 @@ class Step1RegisterFragment : Fragment() {
     }
 
     private fun setOberservers() {
-
+        viewModel.userInformation.observe(viewLifecycleOwner,EventObserver{
+            //Mostramos un mensaje de exito al registrar el usuario
+            findNavController().navigate(R.id.action_step1RegisterFragment_to_step2RegisterFragment)
+        })
     }
 
     private fun initviews() {

@@ -39,6 +39,7 @@ class StartingFragment : Fragment() {
 
         binding.btnRegister.setOnClickListener{
             findNavController().navigate(R.id.action_startingFragment_to_step1RegisterFragment)
+
         }
     }
 }

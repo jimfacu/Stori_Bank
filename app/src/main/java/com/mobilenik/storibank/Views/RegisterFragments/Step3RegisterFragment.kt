@@ -5,19 +5,36 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.fragment.findNavController
 import com.mobilenik.storibank.R
+import com.mobilenik.storibank.databinding.FragmentStep3RegisterBinding
 
 
 class Step3RegisterFragment : Fragment() {
+
+    private lateinit var binding:FragmentStep3RegisterBinding
 
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_step3_register, container, false)
+    ): View {
+
+        binding = FragmentStep3RegisterBinding.inflate(layoutInflater)
+        return binding.root
+
     }
 
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        initViews()
+    }
+
+    private fun initViews() {
+        binding.btnFinishRegister.setOnClickListener {
+            findNavController().navigate(R.id.action_step3RegisterFragment_to_startingFragment)
+        }
+    }
 }

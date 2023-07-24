@@ -1,4 +1,4 @@
-package com.mobilenik.storibank.Data.Network
+package com.mobilenik.storibank.Data
 
 sealed class Result<out R> {
 

@@ -1,8 +1,8 @@
 package com.mobilenik.storibank.Data.Network.Helper
 
 import android.content.Context
-import com.mobilenik.storibank.Data.Network.DefaultRepository
-import com.mobilenik.storibank.Data.Network.FirebaseRemoteDataSource
+import com.mobilenik.storibank.Data.DefaultRepository
+import com.mobilenik.storibank.Data.Network.FirebaseDataSource.FirebaseRemoteDataSource
 import com.mobilenik.storibank.Data.Network.Repository
 import dagger.Module
 import dagger.Provides

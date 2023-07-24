@@ -36,5 +36,9 @@
         android:id="@+id/step3RegisterFragment"
         android:name="com.mobilenik.storibank.Views.RegisterFragments.Step3RegisterFragment"
         android:label="fragment_step3_register"
-        tools:layout="@layout/fragment_step3_register" />
+        tools:layout="@layout/fragment_step3_register" >
+        <action
+            android:id="@+id/action_step3RegisterFragment_to_startingFragment"
+            app:destination="@id/startingFragment" />
+    </fragment>
 </navigation>
