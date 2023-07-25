@@ -62,7 +62,7 @@ class HomeFragment : BaseFragment() {
             showMessage(it,object : DialogManager.IListener {
                 override fun onClick() {
                    requireActivity().finish()
-                    agregadas                }
+                }
             })
         })
     }
