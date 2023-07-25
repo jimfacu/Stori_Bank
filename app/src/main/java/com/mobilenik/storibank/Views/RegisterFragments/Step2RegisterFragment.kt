@@ -2,7 +2,6 @@ package com.mobilenik.storibank.Views.RegisterFragments
 
 import android.net.Uri
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -43,7 +42,6 @@ class Step2RegisterFragment : BaseFragment() {
         } catch (e: ClassCastException) {
             throw ClassCastException(activity.toString() + " must implement TextClicked")
         }
-
 
         initViews()
         setObservers()

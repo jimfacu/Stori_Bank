@@ -1,18 +1,14 @@
 package com.mobilenik.storibank.Views.RegisterFragments
 
-import android.graphics.ColorMatrix
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.compose.ui.graphics.Color
 import androidx.core.content.ContextCompat
-import androidx.core.content.res.ResourcesCompat
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import com.mobilenik.storibank.BaseFragment
-import com.mobilenik.storibank.Data.Model.UserInformation
+import com.mobilenik.storibank.Common.Constants
 import com.mobilenik.storibank.Data.Model.UserRegister
 import com.mobilenik.storibank.R
 import com.mobilenik.storibank.Utils.DialogManager
@@ -67,7 +63,7 @@ class Step1RegisterFragment : BaseFragment() {
 
             val body = UserRegister(binding.etName.text.toString(),
                 binding.etLastName.text.toString(),binding.etEmail.text.toString(),
-            binding.etPassword.text.toString(),"0")
+            binding.etPassword.text.toString(),Constants.FIREBASE_FIELD_BALANCE_VALUE)
             viewModel.registerUser(body)
         }
     }

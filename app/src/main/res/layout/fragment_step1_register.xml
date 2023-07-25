@@ -44,7 +44,7 @@
                 android:layout_margin="20dp"
                 android:fontFamily="@font/poppins_bold"
                 android:gravity="center"
-                android:text="¡Cuentanos sobre ti!"
+                android:text="@string/title_about_you"
                 android:textColor="@color/greyStori"
                 android:textSize="25sp"
                 app:layout_constraintBottom_toTopOf="@id/et_Name"
@@ -61,7 +61,7 @@
                 android:layout_marginTop="20dp"
                 android:layout_marginBottom="30dp"
                 android:background="@drawable/edittext_one_line"
-                android:hint="Ingrese su nombre"
+                android:hint="@string/hint_name"
                 android:inputType="textEmailAddress"
                 android:textColorHint="@color/greyStori"
                 android:textColor="@color/black"
@@ -75,7 +75,7 @@
                 android:layout_marginTop="5dp"
                 android:textColor="@color/greyStori"
                 android:textSize="11sp"
-                android:text="*El campo nombre debe contener al menos 2 caracteres"
+                android:text="@string/rule_name"
                 app:layout_constraintTop_toBottomOf="@id/et_Name"
                 app:layout_constraintLeft_toLeftOf="@id/et_Name"/>
 
@@ -87,7 +87,7 @@
                 android:layout_marginTop="20dp"
                 android:layout_marginBottom="30dp"
                 android:background="@drawable/edittext_one_line"
-                android:hint="Ingrese su apellido"
+                android:hint="@string/hint_last_name"
                 android:inputType="textEmailAddress"
                 android:textColorHint="@color/greyStori"
                 android:textColor="@color/black"
@@ -102,7 +102,7 @@
                 android:layout_marginTop="5dp"
                 android:textColor="@color/greyStori"
                 android:textSize="11sp"
-                android:text="*El campo apellido debe contener al menos 2 caracteres"
+                android:text="@string/rule_last_name"
                 app:layout_constraintTop_toBottomOf="@id/et_Last_Name"
                 app:layout_constraintLeft_toLeftOf="@id/et_Last_Name"/>
 
@@ -113,7 +113,7 @@
                 android:layout_marginHorizontal="24dp"
                 android:layout_marginTop="20dp"
                 android:background="@drawable/edittext_one_line"
-                android:hint="ingrese su email"
+                android:hint="@string/hint_email"
                 android:inputType="textEmailAddress"
                 android:textColorHint="@color/greyStori"
                 android:textColor="@color/black"
@@ -131,7 +131,7 @@
                 android:layout_marginHorizontal="24dp"
                 android:layout_marginTop="15dp"
                 android:background="@drawable/edittext_one_line"
-                android:hint="Ingrese su contraseña"
+                android:hint="@string/hint_input_password"
                 android:textColorHint="@color/greyStori"
                 android:textColor="@color/black"
                 app:layout_constraintLeft_toLeftOf="parent"
@@ -144,7 +144,7 @@
                 android:layout_marginTop="5dp"
                 android:textColor="@color/greyStori"
                 android:textSize="11sp"
-                android:text="*El campo contraseña debe contener al menos 6 caracteres"
+                android:text="@string/rule_password"
                 app:layout_constraintTop_toBottomOf="@id/et_Password"
                 app:layout_constraintLeft_toLeftOf="@id/et_Password"/>
 
@@ -171,7 +171,7 @@
                     android:layout_gravity="center"
                     android:layout_marginHorizontal="50dp"
                     android:layout_marginVertical="13dp"
-                    android:text="Continuar"
+                    android:text="@string/btn_continue"
                     android:textColor="@color/white"
                     android:textStyle="bold" />
 

@@ -49,10 +49,9 @@ class MainActivity : AppCompatActivity() ,UtilsInterface{
             if (result.resultCode == Activity.RESULT_OK  ) {
 
                 val imageUri = result.data!!.extras
-                val uriImage = bitmapToUri(imageUri!!.get("data") as Bitmap)
+                val uriImage = bitmapToUri(imageUri!!.get(Constants.KEY_DATA_BUNDLE) as Bitmap)
                 sendUriImageToFragment(uriImage)
 
-                Log.d("Imagen",uriImage.toString())
             }
         }
 

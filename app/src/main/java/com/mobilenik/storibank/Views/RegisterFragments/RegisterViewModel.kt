@@ -3,8 +3,8 @@ package com.mobilenik.storibank.Views.RegisterFragments
 import android.net.Uri
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.mobilenik.storibank.BaseViewModel
 import com.mobilenik.storibank.Common.Constants
 import com.mobilenik.storibank.Common.Logger
 import com.mobilenik.storibank.Common.LoggerImpl
@@ -19,14 +19,13 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import javax.inject.Inject
-import kotlin.math.log
 
 
 @HiltViewModel
 class RegisterViewModel @Inject constructor(
     private val saveRegisterUser: SaveRegisterUser,
     private val savePictureUser: SavePictureUser
-): BaseViewModel(){
+): ViewModel(){
 
     private val _userInformation = MutableLiveData<Event<UserInformation>>()
     val userInformation: LiveData<Event<UserInformation>> get() = _userInformation

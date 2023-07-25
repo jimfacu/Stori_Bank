@@ -2,8 +2,8 @@ package com.mobilenik.storibank.Views.HomeFragment
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.mobilenik.storibank.BaseViewModel
 import com.mobilenik.storibank.Common.Constants
 import com.mobilenik.storibank.Common.Logger
 import com.mobilenik.storibank.Common.LoggerImpl
@@ -21,7 +21,7 @@ import javax.inject.Inject
 @HiltViewModel
 class HomeViewModel @Inject constructor(
     private val fetchUserInformation: GetUserInformation
-):BaseViewModel() {
+): ViewModel() {
 
     private val _userInformation = MutableLiveData<Event<User>>()
     val userInformation: LiveData<Event<User>> get() = _userInformation

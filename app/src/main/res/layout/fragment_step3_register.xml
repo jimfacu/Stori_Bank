@@ -23,7 +23,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="¡Felicidades!"
+        android:text="@string/message_congrats"
         android:textSize="25sp"
         android:textColor="@color/black"
         android:gravity="center"
@@ -38,7 +38,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:id="@+id/tv_description"
-        android:text="Tu cuenta ha sido creada exitosamente"
+        android:text="@string/message_register_user_success"
         android:textSize="20sp"
         android:textColor="@color/black"
         android:gravity="center"
@@ -72,7 +72,7 @@
             android:layout_gravity="center"
             android:layout_marginHorizontal="50dp"
             android:layout_marginVertical="13dp"
-            android:text="Finalizar Registro"
+            android:text="@string/btn_finalize_register"
             android:textColor="@color/white"
             android:textStyle="bold"
             />

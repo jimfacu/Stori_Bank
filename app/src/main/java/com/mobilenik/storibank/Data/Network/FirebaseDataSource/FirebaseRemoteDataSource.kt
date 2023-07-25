@@ -68,7 +68,7 @@ class FirebaseRemoteDataSource : FirebaseDataSource {
                     .getReference(Constants.FIREBASE_PATH_PICTURE+
                             StoriBankPreferences.getAUserUid())
                 storage.putFile(pictureUser).addOnSuccessListener {
-                    cont.resume(Result.Success("Imagen subida con exito"))
+                    cont.resume(Result.Success(Constants.MESSAGE_PICTURE_UPLOAD))
                 }
                     .addOnFailureListener{
                         cont.resume(Result.Error(it))
@@ -86,7 +86,7 @@ class FirebaseRemoteDataSource : FirebaseDataSource {
                     if (it.user != null){
                         cont.resume(Result.Success(it.user!!.uid))
                     }else{
-                        cont.resume(Result.Error(Exception("Error al inciar sesion")))
+                        cont.resume(Result.Error(Exception(Constants.MESSAGE_ERROR_LOGIN)))
                     }
                 }
                     .addOnFailureListener{ it ->

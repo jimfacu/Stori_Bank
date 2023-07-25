@@ -1,7 +1,6 @@
 package com.mobilenik.storibank.Views.StartingFragment
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,7 +9,6 @@ import androidx.navigation.fragment.findNavController
 import com.mobilenik.storibank.BaseFragment
 import com.mobilenik.storibank.Data.Model.UserLogin
 import com.mobilenik.storibank.R
-import com.mobilenik.storibank.Utils.DialogManager
 import com.mobilenik.storibank.Utils.EventObserver
 import com.mobilenik.storibank.databinding.FragmentStartingBinding
 

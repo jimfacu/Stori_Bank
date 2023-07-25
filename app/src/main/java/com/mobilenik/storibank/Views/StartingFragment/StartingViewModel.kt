@@ -2,13 +2,12 @@ package com.mobilenik.storibank.Views.StartingFragment
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.mobilenik.storibank.BaseViewModel
 import com.mobilenik.storibank.Common.Constants
 import com.mobilenik.storibank.Common.Logger
 import com.mobilenik.storibank.Common.LoggerImpl
 import com.mobilenik.storibank.Domain.GetLoginUserUseCase
-import com.mobilenik.storibank.Data.Model.User
 import com.mobilenik.storibank.Data.Model.UserLogin
 import com.mobilenik.storibank.Data.Result
 import com.mobilenik.storibank.Utils.Event
@@ -21,7 +20,7 @@ import javax.inject.Inject
 @HiltViewModel
 class StartingViewModel @Inject constructor(
     private val getLoginUserUseCase: GetLoginUserUseCase
-):BaseViewModel(){
+):ViewModel(){
 
     private val _userInformation = MutableLiveData<Event<String>>()
     val userInformation:LiveData<Event<String>> get() = _userInformation
@@ -55,9 +54,7 @@ class StartingViewModel @Inject constructor(
                     logger.error(Constants.DESCRIPTION_GENERIC_ERROR)
                     _error.postValue(Event(Constants.DESCRIPTION_GENERIC_ERROR))
                 }
-
             }
-
         }
     }
 }

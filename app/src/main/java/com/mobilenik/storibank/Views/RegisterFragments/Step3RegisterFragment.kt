@@ -6,11 +6,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
+import com.mobilenik.storibank.BaseFragment
 import com.mobilenik.storibank.R
 import com.mobilenik.storibank.databinding.FragmentStep3RegisterBinding
 
 
-class Step3RegisterFragment : Fragment() {
+class Step3RegisterFragment : BaseFragment() {
 
     private lateinit var binding:FragmentStep3RegisterBinding
 

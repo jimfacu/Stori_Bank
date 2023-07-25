@@ -1,8 +1,6 @@
 package com.mobilenik.storibank.Views.HomeFragment
 
 import android.os.Bundle
-import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -11,11 +9,10 @@ import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.mobilenik.storibank.BaseFragment
-import com.mobilenik.storibank.Data.Model.Moves
+import com.mobilenik.storibank.Common.Constants
 import com.mobilenik.storibank.R
 import com.mobilenik.storibank.Utils.DialogManager
 import com.mobilenik.storibank.Utils.EventObserver
-import com.mobilenik.storibank.Views.RegisterFragments.RegisterViewModel
 import com.mobilenik.storibank.databinding.FragmentHomeBinding
 
 
@@ -47,7 +44,7 @@ class HomeFragment : BaseFragment() {
 
     private fun setObservers() {
         viewModel.userInformation.observe(viewLifecycleOwner,EventObserver{
-            binding.tvNameUser.text = "Hola ${it.name} "
+            binding.tvNameUser.text = "Hola ${it.name}"
         })
 
 
@@ -69,7 +66,7 @@ class HomeFragment : BaseFragment() {
 
     private fun initAdapterClick() {
         adapter.onItemClickListener = {
-            val bundle = bundleOf("Move" to it)
+            val bundle = bundleOf(Constants.KEY_MOVES_BUNDLE to it)
             findNavController().navigate(R.id.action_homeFragment_to_moveDetailFragment,bundle)
         }
     }

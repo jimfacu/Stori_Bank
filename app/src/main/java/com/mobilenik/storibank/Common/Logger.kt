@@ -4,7 +4,7 @@ import android.util.Log
 import com.google.gson.Gson
 
 object LoggerImpl : Logger{
-    private const val TAG = "Logger"
+    private const val TAG = Constants.TAG_LOGGER
     private val gson: Gson = Gson()
 
     override fun debug(message: String) {

@@ -5,10 +5,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import com.mobilenik.storibank.BaseFragment
+import com.mobilenik.storibank.Common.Constants
 import com.mobilenik.storibank.Data.Model.Moves
 import com.mobilenik.storibank.databinding.FragmentMoveDetailBinding
 
-class MoveDetailFragment : Fragment() {
+class MoveDetailFragment : BaseFragment() {
 
     private lateinit var binding:FragmentMoveDetailBinding
     private lateinit var move:Moves
@@ -27,7 +29,7 @@ class MoveDetailFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
             arguments.let { bundle ->
-                move = bundle!!.getParcelable("Move")!!
+                move = bundle!!.getParcelable(Constants.KEY_MOVES_BUNDLE)!!
 
             }
 
