@@ -72,7 +72,6 @@ class HomeFragment : BaseFragment() {
     }
 
     private fun initViews() {
-
-
+        hideProgress()
     }
 }

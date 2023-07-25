@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import com.mobilenik.storibank.BaseFragment
@@ -42,6 +43,7 @@ class StartingFragment : BaseFragment() {
 
 
         viewModel.error.observe(viewLifecycleOwner,EventObserver{
+            hideProgress()
             showMessage(it)
             })
         }
@@ -50,7 +52,7 @@ class StartingFragment : BaseFragment() {
     private fun initViews() {
 
         binding.btnLogin.setOnClickListener {
-            hideProgress()
+            showProgress()
             viewModel.loginUser(UserLogin(binding.etemail.text.toString(),binding.etPassword.text.toString()))
         }
 
@@ -58,4 +60,5 @@ class StartingFragment : BaseFragment() {
             findNavController().navigate(R.id.action_startingFragment_to_step1RegisterFragment)
         }
     }
+
 }
