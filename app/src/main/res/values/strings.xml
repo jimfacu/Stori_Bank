@@ -28,6 +28,8 @@
     <string name="message_congrats">¡Felicidades!</string>
     <string name="message_register_user_success">Tu cuenta ha sido creada exitosamente</string>
     <string name="btn_finalize_register">Finalizar Registro</string>
+    <string name="message_empty_list">Aca verás tus proximos movimientos</string>
+
 
 
 

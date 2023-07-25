@@ -106,12 +106,13 @@ class FirebaseRemoteDataSource : FirebaseDataSource {
                         value: DocumentSnapshot?,
                         error: FirebaseFirestoreException?
                     ) {
+                        val movesList = value!!.get(Constants.FIREBASE_FIELD_MOVES) as? ArrayList<HashMap<String, String>> ?: arrayListOf()
                        val user = User(
                            value!!.getString(Constants.FIREBASE_FIELD_NAME),
                            value.getString(Constants.FIREBASE_FIELD_LAST_NAME),
                            value.getString(Constants.FIREBASE_FIELD_EMAIL),
                            value.getString(Constants.FIREBASE_FIELD_BALANCE),
-                           value.get(Constants.FIREBASE_FIELD_MOVES) as ArrayList<HashMap<String,String>>
+                           movesList
                        )
                         cont.resume(Result.Success(user))
                     }
@@ -121,8 +122,6 @@ class FirebaseRemoteDataSource : FirebaseDataSource {
                 cont.resume(Result.Error(e))
             }
         }
-
-
 }
 
 

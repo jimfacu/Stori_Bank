@@ -49,10 +49,16 @@ class HomeFragment : BaseFragment() {
 
 
         viewModel.moveList.observe(viewLifecycleOwner){ it ->
-            binding.rvMoves.layoutManager = LinearLayoutManager(activity)
-            adapter = MovesAdapters(it)
-            binding.rvMoves.adapter = adapter
-            initAdapterClick()
+            if(it.isEmpty()){
+                binding.rvMoves.visibility = View.GONE
+                binding.tvEmptyList.visibility = View.VISIBLE
+            }else{
+                binding.rvMoves.layoutManager = LinearLayoutManager(activity)
+                adapter = MovesAdapters(it)
+                binding.rvMoves.adapter = adapter
+                initAdapterClick()
+            }
+
         }
 
         viewModel.error.observe(viewLifecycleOwner,EventObserver{
