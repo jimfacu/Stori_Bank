@@ -9,9 +9,11 @@ import android.net.Uri
 import android.os.Bundle
 import android.provider.MediaStore
 import android.util.Log
+import android.view.View
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatDelegate
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.core.net.toUri
@@ -22,6 +24,7 @@ import com.mobilenik.storibank.R
 import com.mobilenik.storibank.Utils.StoriBankPreferences
 import com.mobilenik.storibank.Utils.UtilsInterface
 import com.mobilenik.storibank.Views.RegisterFragments.Step2RegisterFragment
+import com.mobilenik.storibank.databinding.ActivityMainBinding
 import dagger.hilt.android.AndroidEntryPoint
 import java.io.ByteArrayOutputStream
 import java.io.File
@@ -32,13 +35,13 @@ class MainActivity : AppCompatActivity() ,UtilsInterface{
 
     private val MY_PERMISSIONS_REQUEST_CAMERA = 99
 
+    private lateinit var binding: ActivityMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-
-
+        binding = ActivityMainBinding.inflate(layoutInflater)
     }
 
 
@@ -129,6 +132,14 @@ class MainActivity : AppCompatActivity() ,UtilsInterface{
                 return
             }
         }
+    }
+
+    fun showProgress(){
+        binding.ivProgressBar.visibility = View.VISIBLE
+    }
+
+    fun hideProgress(){
+        binding.ivProgressBar.visibility = View.GONE
     }
 
     override fun takePicture() {

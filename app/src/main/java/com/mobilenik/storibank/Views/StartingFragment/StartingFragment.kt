@@ -7,10 +7,14 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
+import com.mobilenik.storibank.BaseFragment
+import com.mobilenik.storibank.Data.Model.UserLogin
 import com.mobilenik.storibank.R
+import com.mobilenik.storibank.Utils.DialogManager
+import com.mobilenik.storibank.Utils.EventObserver
 import com.mobilenik.storibank.databinding.FragmentStartingBinding
 
-class StartingFragment : Fragment() {
+class StartingFragment : BaseFragment() {
 
     private lateinit var binding:FragmentStartingBinding
 
@@ -29,17 +33,30 @@ class StartingFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         initViews()
+
+        setObservers()
     }
+
+    private fun setObservers() {
+        viewModel.userInformation.observe(viewLifecycleOwner,EventObserver{
+            findNavController().navigate(R.id.action_startingFragment_to_homeFragment)
+        })
+
+
+        viewModel.error.observe(viewLifecycleOwner,EventObserver{
+            showMessage(it)
+            })
+        }
+
 
     private fun initViews() {
 
         binding.btnLogin.setOnClickListener {
-
+            viewModel.loginUser(UserLogin(binding.etemail.text.toString(),binding.etPassword.text.toString()))
         }
 
         binding.btnRegister.setOnClickListener{
             findNavController().navigate(R.id.action_startingFragment_to_step1RegisterFragment)
-
         }
     }
 }

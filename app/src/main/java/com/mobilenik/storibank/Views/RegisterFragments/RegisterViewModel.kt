@@ -5,6 +5,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.mobilenik.storibank.BaseViewModel
+import com.mobilenik.storibank.Common.Constants
 import com.mobilenik.storibank.Data.Model.UserInformation
 import com.mobilenik.storibank.Data.Model.UserRegister
 import com.mobilenik.storibank.Data.Result
@@ -31,10 +32,8 @@ class RegisterViewModel @Inject constructor(
     private val _userPicture = MutableLiveData<Event<String>>()
     val userPicture: LiveData<Event<String>> get() = _userPicture
 
-
-    init {
-
-    }
+    private val _error = MutableLiveData<Event<String>>()
+    val error : LiveData<Event<String>> get() = _error
 
     fun registerUser(body:UserRegister){
 
@@ -43,9 +42,20 @@ class RegisterViewModel @Inject constructor(
 
             val result = saveRegisterUser.invoke(body)
 
-            if(result is Result.Success){
-                StoriBankPreferences.setUserUid(result.data.uuid)
-                _userInformation.postValue(Event(result.data))
+
+            when(result){
+
+                is Result.Success ->{
+                    StoriBankPreferences.setUserUid(result.data.uuid)
+                    _userInformation.postValue(Event(result.data))
+                    }
+                is Result.Error ->{
+                    _error.postValue(Event(result.exception!!.message.toString()))
+                }
+                else ->{
+                    _error.postValue(Event(Constants.DESCRIPTION_GENERIC_ERROR))
+                }
+
             }
         }
 
@@ -57,8 +67,18 @@ class RegisterViewModel @Inject constructor(
 
             val result = savePictureUser.invoke(picture)
 
-            if(result is Result.Success){
-                _userPicture.postValue(Event(result.data))
+            when(result){
+
+                is Result.Success ->{
+                    _userPicture.postValue(Event(result.data))
+                }
+                is Result.Error ->{
+                    _error.postValue(Event(result.exception!!.message.toString()))
+                }
+                else ->{
+                    _error.postValue(Event(Constants.DESCRIPTION_GENERIC_ERROR))
+                }
+
             }
 
         }

@@ -7,13 +7,15 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
+import com.mobilenik.storibank.BaseFragment
 import com.mobilenik.storibank.Data.Model.UserInformation
 import com.mobilenik.storibank.Data.Model.UserRegister
 import com.mobilenik.storibank.R
+import com.mobilenik.storibank.Utils.DialogManager
 import com.mobilenik.storibank.Utils.EventObserver
 import com.mobilenik.storibank.databinding.FragmentStep1RegisterBinding
 
-class Step1RegisterFragment : Fragment() {
+class Step1RegisterFragment : BaseFragment() {
 
     private lateinit var binding: FragmentStep1RegisterBinding
 
@@ -38,13 +40,26 @@ class Step1RegisterFragment : Fragment() {
 
     private fun setOberservers() {
         viewModel.userInformation.observe(viewLifecycleOwner,EventObserver{
-            //Mostramos un mensaje de exito al registrar el usuario
-            findNavController().navigate(R.id.action_step1RegisterFragment_to_step2RegisterFragment)
+            hideProgress()
+            showMessage("Usuario registrado con exito!. Continue con los siguientes pasos"
+                ,object : DialogManager.IListener {
+                override fun onClick() {
+                    findNavController().navigate(R.id.action_step1RegisterFragment_to_step2RegisterFragment)
+                }
+            })
+
+        })
+
+
+        viewModel.error.observe(viewLifecycleOwner,EventObserver{ error ->
+            hideProgress()
+            showMessage(error)
         })
     }
 
     private fun initviews() {
         binding.btnContinue.setOnClickListener{
+            showProgress()
             val body = UserRegister(binding.etName.text.toString(),
                 binding.etLastName.text.toString(),binding.etEmail.text.toString(),
             binding.etPassword.text.toString(),"0")

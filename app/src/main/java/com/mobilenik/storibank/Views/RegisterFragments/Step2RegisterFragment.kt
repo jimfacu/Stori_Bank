@@ -8,13 +8,15 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
+import com.mobilenik.storibank.BaseFragment
 import com.mobilenik.storibank.R
+import com.mobilenik.storibank.Utils.DialogManager
 import com.mobilenik.storibank.Utils.EventObserver
 import com.mobilenik.storibank.Utils.UtilsInterface
 import com.mobilenik.storibank.databinding.FragmentStep2RegisterBinding
 
 
-class Step2RegisterFragment : Fragment() {
+class Step2RegisterFragment : BaseFragment() {
 
     private lateinit var binding:FragmentStep2RegisterBinding
     private lateinit var takePicture:UtilsInterface
@@ -48,8 +50,15 @@ class Step2RegisterFragment : Fragment() {
 
     private fun setObservers() {
         viewModel.userPicture.observe(viewLifecycleOwner,EventObserver{
-            //Mostramos un mensaje de exito al guardar la foto del usuario
-            findNavController().navigate(R.id.action_step2RegisterFragment_to_step3RegisterFragment)
+            showMessage(it, object : DialogManager.IListener {
+                override fun onClick() {
+                    findNavController().navigate(R.id.action_step2RegisterFragment_to_step3RegisterFragment)
+                }
+            })
+        })
+
+        viewModel.error.observe(viewLifecycleOwner,EventObserver{
+            showMessage(it)
         })
     }
 
