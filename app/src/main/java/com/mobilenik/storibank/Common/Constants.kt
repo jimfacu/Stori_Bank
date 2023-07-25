@@ -1,6 +1,5 @@
 package com.mobilenik.storibank.Common
 
-import android.os.Build
 
 class Constants {
 

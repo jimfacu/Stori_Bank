@@ -19,7 +19,6 @@ import com.mobilenik.storibank.Utils.StoriBankPreferences
 class FirebaseRemoteDataSource : FirebaseDataSource {
 
     private val loader = FirebaseAuth.getInstance()
-    private val referenceDataBase = FirebaseDatabase.getInstance().getReference(Constants.REFERENCE_DATABASE_USERS)
     private val documentReference = FirebaseFirestore.getInstance()
 
 
