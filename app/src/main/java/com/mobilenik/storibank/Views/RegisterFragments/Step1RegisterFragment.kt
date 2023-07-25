@@ -1,10 +1,14 @@
 package com.mobilenik.storibank.Views.RegisterFragments
 
+import android.graphics.ColorMatrix
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.compose.ui.graphics.Color
+import androidx.core.content.ContextCompat
+import androidx.core.content.res.ResourcesCompat
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import com.mobilenik.storibank.BaseFragment
@@ -40,7 +44,7 @@ class Step1RegisterFragment : BaseFragment() {
 
     private fun setOberservers() {
         viewModel.userInformation.observe(viewLifecycleOwner,EventObserver{
-            hideProgress()
+            finishCallService()
             showMessage("Usuario registrado con exito!. Continue con los siguientes pasos"
                 ,object : DialogManager.IListener {
                 override fun onClick() {
@@ -52,18 +56,31 @@ class Step1RegisterFragment : BaseFragment() {
 
 
         viewModel.error.observe(viewLifecycleOwner,EventObserver{ error ->
-            hideProgress()
+            finishCallService()
             showMessage(error)
         })
     }
 
     private fun initviews() {
         binding.btnContinue.setOnClickListener{
-            showProgress()
+            initializeCallService()
+
             val body = UserRegister(binding.etName.text.toString(),
                 binding.etLastName.text.toString(),binding.etEmail.text.toString(),
             binding.etPassword.text.toString(),"0")
             viewModel.registerUser(body)
         }
+    }
+
+    private fun initializeCallService() {
+        showProgress()
+        binding.btnContinue.isEnabled = false
+        binding.btnContinue.setCardBackgroundColor( ContextCompat.getColor(requireContext(), R.color.greyStori))
+    }
+
+    private fun finishCallService(){
+        hideProgress()
+        binding.btnContinue.isEnabled = true
+        binding.btnContinue.setCardBackgroundColor( ContextCompat.getColor(requireContext(), R.color.colorStoriBank))
     }
 }

@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import com.mobilenik.storibank.BaseFragment
@@ -50,6 +51,7 @@ class Step2RegisterFragment : BaseFragment() {
 
     private fun setObservers() {
         viewModel.userPicture.observe(viewLifecycleOwner,EventObserver{
+            finishCallService()
             showMessage(it, object : DialogManager.IListener {
                 override fun onClick() {
                     findNavController().navigate(R.id.action_step2RegisterFragment_to_step3RegisterFragment)
@@ -58,12 +60,14 @@ class Step2RegisterFragment : BaseFragment() {
         })
 
         viewModel.error.observe(viewLifecycleOwner,EventObserver{
+            finishCallService()
             showMessage(it)
         })
     }
 
     private fun initViews() {
         binding.btnTakePicture.setOnClickListener {
+            initializeCallService()
             takePicture.takePicture()
         }
 
@@ -71,5 +75,17 @@ class Step2RegisterFragment : BaseFragment() {
 
     fun reciveImageUrl(imageUrl:Uri){
         viewModel.savePictureUser(imageUrl)
+    }
+
+    private fun initializeCallService() {
+        showProgress()
+        binding.btnTakePicture.isEnabled = false
+        binding.btnTakePicture.setCardBackgroundColor( ContextCompat.getColor(requireContext(), R.color.greyStori))
+    }
+
+    private fun finishCallService(){
+        hideProgress()
+        binding.btnTakePicture.isEnabled = true
+        binding.btnTakePicture.setCardBackgroundColor( ContextCompat.getColor(requireContext(), R.color.colorStoriBank))
     }
 }

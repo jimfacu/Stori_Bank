@@ -52,6 +52,7 @@ class StartingFragment : BaseFragment() {
     private fun initViews() {
 
         binding.btnLogin.setOnClickListener {
+            hideProgress()
             viewModel.loginUser(UserLogin(binding.etemail.text.toString(),binding.etPassword.text.toString()))
         }
 

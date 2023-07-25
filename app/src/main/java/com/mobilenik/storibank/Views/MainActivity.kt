@@ -18,6 +18,7 @@ import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.core.net.toUri
 import androidx.navigation.fragment.NavHostFragment
+import com.airbnb.lottie.LottieAnimationView
 import com.google.firebase.storage.FirebaseStorage
 import com.mobilenik.storibank.Common.Constants
 import com.mobilenik.storibank.R
@@ -39,9 +40,8 @@ class MainActivity : AppCompatActivity() ,UtilsInterface{
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-
         binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
     }
 
 
@@ -82,7 +82,6 @@ class MainActivity : AppCompatActivity() ,UtilsInterface{
        fileOutputStream.flush()
        fileOutputStream.close()
        byteArrayOutputStream.close()
-
 
        return file.toUri()
     }
@@ -135,11 +134,11 @@ class MainActivity : AppCompatActivity() ,UtilsInterface{
     }
 
     fun showProgress(){
-        binding.ivProgressBar.visibility = View.VISIBLE
+        binding.ivProgressBar.visibility = LottieAnimationView.VISIBLE
     }
 
     fun hideProgress(){
-        binding.ivProgressBar.visibility = View.GONE
+        binding.ivProgressBar.visibility = LottieAnimationView.GONE
     }
 
     override fun takePicture() {

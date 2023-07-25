@@ -6,10 +6,12 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.os.bundleOf
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.mobilenik.storibank.BaseFragment
+import com.mobilenik.storibank.Data.Model.Moves
 import com.mobilenik.storibank.R
 import com.mobilenik.storibank.Utils.DialogManager
 import com.mobilenik.storibank.Utils.EventObserver
@@ -49,26 +51,25 @@ class HomeFragment : BaseFragment() {
         })
 
 
-        viewModel.moveList.observe(viewLifecycleOwner,EventObserver{ it ->
+        viewModel.moveList.observe(viewLifecycleOwner){ it ->
             binding.rvMoves.layoutManager = LinearLayoutManager(activity)
             adapter = MovesAdapters(it)
             binding.rvMoves.adapter = adapter
             initAdapterClick()
-        })
+        }
 
         viewModel.error.observe(viewLifecycleOwner,EventObserver{
             showMessage(it,object : DialogManager.IListener {
                 override fun onClick() {
                    requireActivity().finish()
-                }
+                    agregadas                }
             })
         })
     }
 
     private fun initAdapterClick() {
         adapter.onItemClickListener = {
-            val bundle = Bundle()
-            bundle.putParcelable("Move",it)
+            val bundle = bundleOf("Move" to it)
             findNavController().navigate(R.id.action_homeFragment_to_moveDetailFragment,bundle)
         }
     }

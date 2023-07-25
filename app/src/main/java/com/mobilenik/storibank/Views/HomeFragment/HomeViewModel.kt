@@ -24,8 +24,8 @@ class HomeViewModel @Inject constructor(
     private val _userInformation = MutableLiveData<Event<User>>()
     val userInformation: LiveData<Event<User>> get() = _userInformation
 
-    private val _moveList = MutableLiveData<Event<List<Moves>>>()
-    val moveList: LiveData<Event<List<Moves>>> get() = _moveList
+    private val _moveList = MutableLiveData<List<Moves>>()
+    val moveList: LiveData<List<Moves>> get() = _moveList
 
     private val _error = MutableLiveData<Event<String>>()
     val error : LiveData<Event<String>> get() = _error
@@ -44,7 +44,7 @@ class HomeViewModel @Inject constructor(
             when(result){
 
                 is Result.Success ->{
-                    _moveList.postValue(Event(fetchList(result.data.moves)))
+                    _moveList.postValue(fetchList(result.data.moves))
                     _userInformation.postValue(Event(result.data))
                 }
                 is Result.Error ->{

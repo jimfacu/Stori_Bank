@@ -55,7 +55,11 @@
     </fragment>
     <fragment
         android:id="@+id/moveDetailFragment"
-        android:name="com.mobilenik.storibank.MoveDetailFragment"
+        android:name="com.mobilenik.storibank.Views.MoveDetailFragment.MoveDetailFragment"
         android:label="fragment_move_detail"
-        tools:layout="@layout/fragment_move_detail" />
+        tools:layout="@layout/fragment_move_detail" >
+        <argument
+            android:name="Moves"
+            app:argType="com.mobilenik.storibank.Data.Model.Moves" />
+    </fragment>
 </navigation>
