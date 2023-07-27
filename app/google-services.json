@@ -1,0 +1,68 @@
+{
+  "project_info": {
+    "project_number": "99779618231",
+    "project_id": "stori-bank",
+    "storage_bucket": "stori-bank.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:99779618231:android:8fbc79549810ec1ce1b432",
+        "android_client_info": {
+          "package_name": "com.mobilenik.storibank"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "99779618231-makda5mrrscnt37mgmju72eoke4s7r6s.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB--z2FzS_KWIKVaAaUABlkt9hEsuNQd9w"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "99779618231-makda5mrrscnt37mgmju72eoke4s7r6s.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:99779618231:android:507fc43b6b097102e1b432",
+        "android_client_info": {
+          "package_name": "com.stori.storibank"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "99779618231-makda5mrrscnt37mgmju72eoke4s7r6s.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB--z2FzS_KWIKVaAaUABlkt9hEsuNQd9w"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "99779618231-makda5mrrscnt37mgmju72eoke4s7r6s.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
